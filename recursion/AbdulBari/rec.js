@@ -52,6 +52,14 @@ function fun(n) {
 }
 // fun(3)
 
+// Nested Recursion -> The parameter that passed to a recursive call is itself a recursive call;
+function nestedRecursion(n) {
+    if (n > 100) return n - 10;
+    return nestedRecursion(nestedRecursion(n + 11));
+}
+
+log(nestedRecursion(95));
+
 //Sum of first n natural number 
 function sum(n) {
     if (n === 0) return 0;
@@ -78,14 +86,6 @@ function pow(n, m) {
     return n * (pow(n, m - 1))
 }
 
-function powE(m, n) {
-    if (n === 0) return 1;
-    if (n % 2 === 0) return powE(m * m, n / 2)
-    else return m * powE(m * m, (n - 1) / 2)
-}
-
-// log(powE(2,4)) 
-
 function pow(n, m) {
     if (m === 0) {
         return 1
@@ -97,6 +97,22 @@ function pow(n, m) {
     }
 }
 // log(pow(2,9))
+function pow(x, n) {
+    if (n === 1) return x;
+    let powRes = pow(x, Math.trunc(n / 2));
+    let res = powRes * powRes;
+    return (n % 2) === 0 ? res : x * res;
+}
+
+function powE(m, n) {
+    if (n === 0) return 1;
+    if (n % 2 === 0) return powE(m * m, n / 2)
+    else return m * powE(m * m, (n - 1) / 2)
+}
+
+// log(powE(2,4)) 
+
+
 
 // Taylor series using recursion
 function e(x, n) {
@@ -174,11 +190,11 @@ function fib(n) {
 }
 
 
-var foo = new Array(10);
-var foo = [];
-foo[5] = 10
-log(foo[5])
-log(foo[6])
+// var foo = new Array(10);
+// var foo = [];
+// foo[5] = 10
+// log(foo[5])
+// log(foo[6])
 
 
 
