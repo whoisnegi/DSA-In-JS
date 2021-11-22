@@ -23,29 +23,29 @@ function readLine() {
 }
 
 function main() {
-    let str = readLine();
-    Solution.printSS(str, '');
+    let t = readLine();
+    Solution.printPermutation(t);
 }
 // Driver Code Ends
 
 class Solution {
 
-    static printSS(str, res) {
-
-        // Base case
-        if (str.length === 0) {
-            console.log(res);
+    static printPermutation(str, value) {
+        if (str.length === 1) {
+            console.log(value + str);
             return;
         }
-
-        this.printSS(str.slice(1), res + str[0]);
-        this.printSS(str.slice(1), res);
-
+        if (str.length) {
+            for (let i = 0; i < str.length; ++i) {
+                // this.printPermutation(str.replace(str[i], ''), value + str[i]);
+                this.printPermutation(str.slice(0, i) + str.slice(i + 1), value + str[i]);
+            }
+        }
         return;
     }
-
 }
 
-console.log(Solution.printSS('abc', ''));
+// Solution.printPermutation('abc', '');
+
 
 

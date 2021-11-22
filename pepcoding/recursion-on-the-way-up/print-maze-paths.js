@@ -23,29 +23,35 @@ function readLine() {
 }
 
 function main() {
-    let str = readLine();
-    Solution.printSS(str, '');
+    let m = parseInt(readLine());
+    let n = parseInt(readLine());
+    Solution.printMazePaths(1, 1, m, n, '');
 }
 // Driver Code Ends
 
 class Solution {
 
-    static printSS(str, res) {
+    static printMazePaths(sr, sc, dr, dc, path) {
 
-        // Base case
-        if (str.length === 0) {
-            console.log(res);
-            return;
+        if (sr === dr && sc === dc) {
+            console.log(path);
         }
 
-        this.printSS(str.slice(1), res + str[0]);
-        this.printSS(str.slice(1), res);
+        if (sc <= dc) {
+            this.printMazePaths(sr, sc + 1, dr, dc, path + 'h'); // move horizontal
+        }
+
+        if (sr <= dr) {
+            this.printMazePaths(sr + 1, sc, dr, dc, path + 'v'); // move vertical
+        }
 
         return;
     }
-
 }
 
-console.log(Solution.printSS('abc', ''));
+
+// Solution.printMazePaths(1, 1, 2, 2, '');
+
+
 
 

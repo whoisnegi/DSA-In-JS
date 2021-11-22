@@ -23,29 +23,35 @@ function readLine() {
 }
 
 function main() {
-    let str = readLine();
-    Solution.printSS(str, '');
+    let numStr = readLine();
+    Solution.printKpc(numStr, '');
 }
 // Driver Code Ends
 
+const keyMaps = ['.;', 'abc', 'def', 'ghi', 'jkl', 'mno', 'pqrs', 'tu', 'vwx', 'yz'];
+
 class Solution {
 
-    static printSS(str, res) {
+    static printKpc(numStr, ans) {
 
         // Base case
-        if (str.length === 0) {
-            console.log(res);
+        if (numStr.length === 0) {
+            console.log(ans);
             return;
         }
 
-        this.printSS(str.slice(1), res + str[0]);
-        this.printSS(str.slice(1), res);
+        if (numStr.length) {
+            let keys = keyMaps[numStr[0]];
+            for (let i = 0; i < keys.length; ++i) {
+                this.printKpc(numStr.slice(1), ans + keys[i]);
+            }
+        }
 
         return;
     }
-
 }
 
-console.log(Solution.printSS('abc', ''));
+
+console.log(Solution.printKpc('78', ''));
 
 
