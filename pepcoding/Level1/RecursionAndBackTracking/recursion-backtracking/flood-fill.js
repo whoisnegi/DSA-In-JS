@@ -56,8 +56,6 @@ class Solution {
             return;
         }
 
-        let lastMove = asf[asf.length - 1];
-
         // Column visited
         visited[sr][sc] = true;
 
