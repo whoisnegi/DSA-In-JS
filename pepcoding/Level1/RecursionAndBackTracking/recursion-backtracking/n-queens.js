@@ -34,7 +34,7 @@ class Solution {
     static printNQueens(chess, row, qsf) {
 
         if (row === chess.length) {
-            console.log(qsf + ',.');
+            console.log(qsf + ',. ');
             return;
         }
 
