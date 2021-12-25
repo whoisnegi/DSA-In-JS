@@ -49,5 +49,5 @@ class Solution {
 
 
 
-console.log(Solution.getFibonacci(10, [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]));
+// console.log(Solution.getFibonacci(10, [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]));
 
