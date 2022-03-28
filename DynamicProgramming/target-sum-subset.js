@@ -1,7 +1,8 @@
 
 function DP(m, n) {
     if (m && n) {
-        return Array.from({ length: ++m }, () => Array(n + 1).fill(-1));
+        // return Array.from({ length: ++m }, () => Array(n + 1).fill(-1));
+        return Array(++m).fill().map(() => Array(n + 1).fill(-1));
     }
     return Array(m + 1).fill(-1);
 }
